@@ -36,10 +36,16 @@ dependencies:
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2
   image: ^4.0.17
+  tflite_flutter:
   path: ^1.8.3
   path_provider: ^2.0.15
   image_picker: ^0.8.8
   camera: ^0.10.5+2
+  shared_preferences: ^2.2.2
+  pdf: ^3.6.2
+  printing:
+  share_plus: ^7.2.1
+  screenshot: ^2.1.0
   tflite_v2: ^1.0.0
   get:
 dev_dependencies:
@@ -81,6 +87,58 @@ flutter:
   # list giving the asset and other descriptors for the font. For
   # example:
   # fonts:
+  fonts:
+    - family: ae_Nice
+      fonts:
+        - asset: assets/fonts/ae_Nice Regular.ttf
+    - family: Aref_Menna
+      fonts:
+        - asset: assets/fonts/Aref_Menna Regular.ttf
+    - family: Basim Marah Beh Light
+      fonts:
+        - asset: assets/fonts/Basim Marah Beh Light.ttf
+    - family: B Cheshmeh
+      fonts:
+        - asset: assets/fonts/B Setareh Bold.ttf
+    - family: B Paatch Bold
+      fonts:
+        - asset: assets/fonts/B Paatch Bold.ttf
+    - family: B Setareh
+      fonts:
+        - asset: assets/fonts/B Setareh Bold.ttf
+    - family: B Ziba
+      fonts:
+        - asset: assets/fonts/B Ziba Regular.ttf
+    - family: DastNevis
+      fonts:
+        - asset: assets/fonts/Dast Nevis Regular.ttf
+    - family: Dima Font
+      fonts:
+        - asset: assets/fonts/Dima Font Regular.ttf
+    - family: DecoType Thuluth
+      fonts:
+        - asset: assets/fonts/DecoType Thuluth Regular.ttf
+    - family: Ghalam-1
+      fonts:
+        - asset: assets/fonts/Ghalam1 Regular.ttf
+    - family: Ghalam-2
+      fonts:
+        - asset: assets/fonts/Ghalam2 Regular.otf
+    - family: K Kamran
+      fonts:
+        - asset: assets/fonts/K Kamran K Kamran.ttf
+    - family: K Tabassom
+      fonts:
+        - asset: assets/fonts/K Tabassom K Tabassom.ttf
+    - family: pHalls Khodkar
+      fonts:
+        - asset: assets/fonts/pHalls Khodkar Regular.ttf
+    - family: THARWAT EMARA MODERN
+      fonts:
+        - asset: assets/fonts/THARWAT EMARA DEWANI Regular.ttf
+    - family: ToyorAljanah
+      fonts:
+        - asset: assets/fonts/ToyorAljanah Regular.ttf
   #   - family: Schyler
   #     fonts:
   #       - asset: fonts/Schyler-Regular.ttf
