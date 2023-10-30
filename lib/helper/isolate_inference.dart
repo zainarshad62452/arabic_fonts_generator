@@ -40,65 +40,25 @@ class IsolateInference {
 
       // resize original image to match model shape.
 
-      image_lib.Image imageInput = img!;
-      print("Pre Process  $imageInput");
-      imageInput = image_lib.grayscale(imageInput);
-      print("Pre Process  $imageInput");
-      imageInput = image_lib.copyResize(
-        imageInput,
-        width: 80,
-        height: 80,
+      image_lib.Image imageInput = image_lib.copyResize(
+        img!,
+        width: isolateModel.inputShape[1],
+        height: isolateModel.inputShape[2],
       );
-      print("Pre Process  $imageInput");
-
-
-      // Normalize the pixel values
-      imageInput = image_lib.normalize(imageInput, min: 0, max: 1);
-      print("Pre Process  $imageInput");
-
-      if (Platform.isAndroid && isolateModel.isCameraFrame()) {
-        imageInput = image_lib.copyRotate(imageInput, angle: 90);
-      }
-
-
-      print("Decoded Image ${imageInput}");
-      // Normalize imageInput by 255.0
-      // const double normalizationFactor = 255.0;
-      // for (var y = 0; y < imageInput.height; y++) {
-      //   for (var x = 0; x < imageInput.width; x++) {
-      //     final pixel = imageInput.getPixel(x, y);
-      //     final r = (pixel.r / normalizationFactor).roundToDouble();
-      //     final g = (pixel.g / normalizationFactor).roundToDouble();
-      //     final b = (pixel.b / normalizationFactor).roundToDouble();
-      //     final a = pixel.a;
-      //     imageInput.setPixelRgba(x, y, r, g, b, a);
-      //     imageInput.getPixel(x, y);
-      //   }
-      // }
-
+      print("Pre Process  ${imageInput.data?.toUint8List()})");
 
       print(imageInput);
-
-      // final imageMatrix = List.generate(
-      //   imageInput.height,
-      //   (y) => List.generate(
-      //     imageInput.width,
-      //     (x) {
-      //       final pixel = imageInput.getPixel(x, y);
-      //       return [pixel.r,pixel.g,pixel.b,pixel.a];
-      //     },
-      //   ),
-      // );
-      final List<List<List<num>>> imageMatrix = List.generate(
+      final imageMatrix = List.generate(
         imageInput.height,
             (y) => List.generate(
-              imageInput.height,
+          imageInput.width,
               (x) {
             final pixel = imageInput.getPixel(x, y);
-            return pixel.toList();
+            return [pixel.r/255.0];
           },
         ),
       );
+
 
       print("Image Matrix : $imageMatrix");
 
